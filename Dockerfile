@@ -1,7 +1,7 @@
-ARG VERSION=7.3.17
+ARG PHP_VERSION=7.3.17
 
 # Dev image
-FROM php:${VERSION}-fpm-alpine AS dev
+FROM php:${PHP_VERSION}-fpm-alpine AS dev
 
 ## Install system dependencies
 RUN apk update && \
@@ -36,6 +36,8 @@ RUN pecl install \
     docker-php-ext-enable redis && \
     docker-php-ext-install \
       xsl \
+      bcmath \
+      ldap \
       soap \
       gd \
       pdo \
@@ -47,4 +49,5 @@ RUN pecl install \
       pdo_pgsql \
       imap \
       tidy \
-      pcntl && rm -rf /tmp/*
+      pcntl \
+    && rm -rf /tmp/*
