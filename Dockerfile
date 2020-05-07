@@ -61,3 +61,15 @@ RUN pecl install \
     # composer global --no-progress --no-interaction require hirak/prestissimo
 
 WORKDIR /app
+
+RUN rm -fR /app/var/attachment && \
+    rm -fR /app/var/cache && \
+    rm -fR /app/var/logs && \
+    rm -fR /app/var/import_export && \
+    rm -fR /app/var/sessions && \
+    ln -nfs /data-var/attachment /app/var/attachment && \
+    ln -nfs /data-var/cache /app/var/cache && \
+    ln -nfs /data-var/logs /app/var/logs && \
+    ln -nfs /data-var/import_export /app/var/import_export && \
+    ln -nfs /data-var/sessions /app/var/sessions
+
