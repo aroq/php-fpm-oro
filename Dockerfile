@@ -61,3 +61,5 @@ RUN wget https://getcomposer.org/installer && \
     composer global --no-progress --no-interaction require hirak/prestissimo
 
 WORKDIR /app
+
+COPY php.ini /usr/local/etc/php/conf.d/default.ini
