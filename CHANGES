@@ -1,3 +1,6 @@
+Version 7.3.17.8:
+ - Add composer
+
 Version 7.3.17.7:
  - Make www-data user default
 
