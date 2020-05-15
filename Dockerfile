@@ -54,12 +54,10 @@ RUN pecl install \
       pcntl \
     && rm -rf /tmp/*
 
-## Install composer
-# RUN wget https://getcomposer.org/installer && \
-    # php installer --install-dir=/usr/local/bin/ --filename=composer && \
-    # rm installer && \
-    # composer global --no-progress --no-interaction require hirak/prestissimo
+# Install composer
+RUN wget https://getcomposer.org/installer && \
+    php installer --install-dir=/usr/local/bin/ --filename=composer && \
+    rm installer && \
+    composer global --no-progress --no-interaction require hirak/prestissimo
 
 WORKDIR /app
-
-USER www-data
