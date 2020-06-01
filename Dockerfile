@@ -36,7 +36,8 @@ RUN pecl install \
       && \
     docker-php-ext-enable xdebug && \
     docker-php-ext-enable redis && \
-    docker-php-ext-install \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+    docker-php-ext-install -j$(nproc)  \
       xsl \
       bcmath \
       ldap \
@@ -51,8 +52,8 @@ RUN pecl install \
       pdo_pgsql \
       imap \
       tidy \
-      pcntl \
-    && rm -rf /tmp/*
+      pcntl && \
+    rm -rf /tmp/*
 
 # Install composer
 RUN wget https://getcomposer.org/installer && \
