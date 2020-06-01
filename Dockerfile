@@ -31,9 +31,8 @@ ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 ## Install php extensions
 RUN pecl install \
-    xdebug \
-    redis \
-      && \
+      xdebug \
+      redis && \
     docker-php-ext-enable xdebug && \
     docker-php-ext-enable redis && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
