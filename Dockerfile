@@ -24,6 +24,7 @@ RUN apk update && \
       libxslt-dev \
       openldap-dev \
       npm \
+      patch \
       libjpeg-turbo-dev
 
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted gnu-libiconv
